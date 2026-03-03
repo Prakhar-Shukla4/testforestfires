@@ -3,6 +3,7 @@ import pickle
 import numpy as np
 import pandas as pd
 from sklearn.preprocessing import StandardScaler
+import os
 
 application=Flask(__name__)
 app=application
@@ -34,6 +35,6 @@ def predict_data():
     else:
         return render_template('home.html')
 
-if __name__=='__main__':
-    app.run(host='0.0.0.0')
-
+if __name__ == "__main__":
+    port = int(os.environ.get("PORT", 10000))
+    app.run(host="0.0.0.0", port=port)
